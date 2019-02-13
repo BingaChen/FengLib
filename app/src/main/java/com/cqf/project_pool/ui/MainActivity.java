@@ -31,7 +31,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        MyUtils.initLocaleLanguage(MainActivity.this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         super.onCreate(savedInstanceState);
