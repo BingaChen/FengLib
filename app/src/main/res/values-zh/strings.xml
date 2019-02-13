@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">项目池</string>
+    <string name="AlertDialog">Alert弹窗</string>
+    <string name="PopupWindow">PopupWindow弹窗</string>
+    <string name="SetLanguage">设置语言</string>
+</resources>

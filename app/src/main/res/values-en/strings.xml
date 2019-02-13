@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ProjectPool</string>
+    <string name="AlertDialog">AlertDialog</string>
+    <string name="PopupWindow">PopupWindow</string>
+    <string name="SetLanguage">SetLanguage</string>
+</resources>

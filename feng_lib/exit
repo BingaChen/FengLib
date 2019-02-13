@@ -1,0 +1,43 @@
+[33mcommit 0723d2a6d3424ca5031433512ad898bafd350242[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 11:26:58 2018 +0800
+
+    Update README.md
+    
+    master update
+
+[33mcommit ff0f1792a6494b54b9e111008faa7f6491f95012[m
+Merge: b031d82 1f8634a
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 11:23:44 2018 +0800
+
+    Merge pull request #2 from BingaChen/branch
+    
+    Update README.md
+
+[33mcommit 1f8634ab59b9799dd6adda09d3c109726cd31c8c[m
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 11:22:39 2018 +0800
+
+    Update README.md
+
+[33mcommit b031d820868e5c89f105c28fe399383b1c41b1d9[m
+Merge: 76890d7 8a5cfca
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 11:14:05 2018 +0800
+
+    Merge pull request #1 from BingaChen/branch
+    
+    Update README.md
+
+[33mcommit 8a5cfca2631640000f6084116ef73af64c5059ae[m
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 10:58:17 2018 +0800
+
+    Update README.md
+
+[33mcommit 76890d7ed1c5d8fa4fcee4f904b26181e872a9a6[m
+Author: BingaChen <30615903+BingaChen@users.noreply.github.com>
+Date:   Fri Aug 24 10:04:17 2018 +0800
+
+    Initial commit
