@@ -4,9 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FengLib.iml" filepath="$PROJECT_DIR$/FengLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\app\app.iml" filepath="D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/feng_lib/feng_lib.iml" filepath="$PROJECT_DIR$/feng_lib/feng_lib.iml" />
-      <module fileurl="file://D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\feng_lib\feng_lib.iml" filepath="D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\feng_lib\feng_lib.iml" />
       <module fileurl="file://D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\project_pool.iml" filepath="D:\AndroidWorkSpace\GitHubWorkSpace\FengLib\project_pool.iml" />
     </modules>
   </component>
