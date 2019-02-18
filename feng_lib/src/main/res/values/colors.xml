@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
+    <color name="yellow">#FFD5AE53</color>
+    <color name="gray">#666</color>
+    <color name="green">#00FF00</color>
+
+    <color name="colorPrimary">#FFD5AE53</color>//导航栏颜色
+    <color name="colorPrimaryDark">#d5ae53</color>//状态栏颜色
+    <color name="colorAccent">#d5ae53</color>//控件主题颜色
+    <color name="titleTextColor">#FFFFFF</color>
+    <color name="windowBackground">#d9d9d9</color> //默认界面背景颜色
+    <color name="textColorPrimary">#333333</color> //默认文字主题颜色
+    <color name="translate">#00000000</color>
 </resources>

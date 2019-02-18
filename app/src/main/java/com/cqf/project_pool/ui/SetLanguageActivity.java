@@ -27,9 +27,11 @@ public class SetLanguageActivity extends BaseToolbarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_language);
         ButterKnife.bind(this);
-        super.onCreate(savedInstanceState);
+        setToolbar();
+        init();
     }
 
     @Override

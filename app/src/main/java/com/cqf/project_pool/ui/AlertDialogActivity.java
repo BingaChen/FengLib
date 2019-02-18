@@ -29,9 +29,11 @@ public class AlertDialogActivity extends BaseToolbarActivity {
     AlertDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert_dialog);
         ButterKnife.bind(this);
-        super.onCreate(savedInstanceState);
+        setToolbar();
+        init();
     }
 
     @Override

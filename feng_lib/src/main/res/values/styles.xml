@@ -19,4 +19,16 @@
         <!--背景变暗-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    //普通主题
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/titleTextColor</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <item name="actionBarSize">@dimen/actionBarSize</item>
+
+    </style>
 </resources>

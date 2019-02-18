@@ -31,17 +31,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        super.onCreate(savedInstanceState);
-
-        tvDoubleClick.setOnClickListener(new View.OnClickListener() {
-            @DoubleClick
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,AlertDialogActivity.class));
-            }
-        });
+        init();
     }
 
     @Override
@@ -72,6 +65,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initListener() {
+        tvDoubleClick.setOnClickListener(new View.OnClickListener() {
+            @DoubleClick
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AlertDialogActivity.class));
+            }
+        });
         contentsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

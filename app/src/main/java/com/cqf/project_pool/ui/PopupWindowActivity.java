@@ -13,6 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.cqf.fenglib.base.BaseApplication;
 import com.cqf.fenglib.base.BaseToolbarActivity;
 import com.cqf.fenglib.utils.MyUtils;
 import com.cqf.project_pool.R;
@@ -37,9 +38,11 @@ public class PopupWindowActivity extends BaseToolbarActivity {
     TextView tvCancel,tvSure;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_window);
         ButterKnife.bind(this);
-        super.onCreate(savedInstanceState);
+        setToolbar();
+        init();
     }
 
     @Override

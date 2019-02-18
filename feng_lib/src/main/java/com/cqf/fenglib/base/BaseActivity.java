@@ -6,26 +6,30 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.cqf.fenglib.Config;
+import com.cqf.fenglib.R;
 import com.cqf.fenglib.utils.LocalManageUtil;
 import com.cqf.fenglib.utils.MyActivityManager;
 import com.cqf.fenglib.utils.MyUtils;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements BaseView{
 
     protected Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        context = this;
         super.onCreate(savedInstanceState);
         Config.TAG = getClass().getSimpleName();
         //打印当前活动界面
@@ -33,29 +37,71 @@ public abstract class BaseActivity extends AppCompatActivity {
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //禁止横竖屏切换
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-//        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         //透明状态栏
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+        BaseApplication.getInstance().addActivity(this);
 
-//        if (!(this instanceof LoginActivity)){
-//            MyActivityManager.addActivity(this);
-//        }
-        MyActivityManager.addActivity(this);
-        context = this;
+        if (BaseApplication.getInstance().getThemeResId()==0){
+            setTheme(R.style.AppTheme_TranslucentStatus);
+        }else {
+            setTheme(BaseApplication.getInstance().getThemeResId());
+        }
+    }
+
+    @Override
+    public void init() {
         initView();
         initData();
         initListener();
     }
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(LocalManageUtil.setLocal(newBase));
     }
 
-    public abstract void initView();
-    public abstract void initData();
-    public abstract void initListener();
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initListener() {
+
+    }
+
+    @Override
+    public void showToast(String msg) {
+        MyUtils.showToast(this,msg);
+    }
+
+    @Override
+    public void showLongToast(String msg) {
+        MyUtils.showLongToast(this,msg);
+    }
+
+    @Override
+    public void showDebug(String msg) {
+        MyUtils.showMyLog(msg);
+    }
+
+    @Override
+    public void showProgressGIF(int resId) {
+
+    }
+
+    @Override
+    public void dismissProgressGIF() {
+
+    }
 
     @Override
     public Resources getResources() {
@@ -141,15 +187,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         MyActivityManager.removeActivity(this);
-    }
-
-
-    public void startWithStringExtras(Context context, String... key_values) {
-        Intent it = new Intent(context, this.getClass());
-        for (int i = 0; i < key_values.length / 2; i++) {
-            it.putExtra(key_values[i * 2], key_values[i * 2 + 1]);
-        }
-        context.startActivity(it);
+        BaseApplication.getInstance().removeActivity(this);
     }
 
 }

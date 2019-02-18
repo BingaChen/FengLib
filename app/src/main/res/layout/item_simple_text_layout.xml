@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="50dp">
+    android:layout_height="@dimen/dp_50">
     <TextView
         android:id="@+id/tvItem"
-        android:textSize="20dp"
+        android:textSize="@dimen/dp_20"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -13,6 +13,6 @@
     <View
         android:background="#efefef"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="@dimen/dp_1"/>
 
 </LinearLayout>

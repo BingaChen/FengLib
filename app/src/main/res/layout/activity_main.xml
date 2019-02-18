@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/white"
+    android:background="@color/green"
     tools:context="com.cqf.project_pool.ui.MainActivity">
 
     <!--<include layout="@layout/cqf_title_layout"/>-->

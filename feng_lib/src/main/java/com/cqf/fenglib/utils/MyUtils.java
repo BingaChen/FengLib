@@ -99,7 +99,10 @@ public class MyUtils {
     public static void showToast(Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
-
+    //长吐司
+    public static void showLongToast(Context context, String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+    }
     //打印长日志
     public static void showLargeLog(String tag, String content) {
         if (content.length() > 4000) {
