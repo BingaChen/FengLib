@@ -1,2 +1,5 @@
-# project_pool
-there are many Android knowledge points you want!
+# How to use
+
+maven { url 'https://jitpack.io' }
+
+implementation 'com.github.BingaChen:FengLib:+'
