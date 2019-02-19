@@ -13,4 +13,7 @@ public class UiUitls {
     public static void setThemeResId(int resId){
         Config.THEME_RESID=resId;
     }
+    public static void setOrientation(int orientation){
+        Config.ORIENTATION =orientation;//0横屏，1竖屏
+    }
 }

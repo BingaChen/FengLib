@@ -8,4 +8,5 @@ public class Config {
     public static String TAG;
     public static int BACK_RESID;
     public static int THEME_RESID;
+    public static int ORIENTATION;
 }

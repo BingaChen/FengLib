@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by Binga on 9/4/2018.
  */
 
-public class BaseApplication extends Application {
+public abstract class BaseApplication extends Application{
 
     public ArrayList<BaseActivity> activities;
     public static BaseApplication application;
@@ -65,4 +65,8 @@ public class BaseApplication extends Application {
             item.finish();
         }
     }
+
+    public abstract void setBack();
+    public abstract void setAppTheme();
+    public abstract void setOrientation();
 }

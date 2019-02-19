@@ -1,11 +1,8 @@
 package com.cqf.fenglib.base;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,7 +15,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.cqf.fenglib.Config;
-import com.cqf.fenglib.R;
 import com.cqf.fenglib.utils.LocalManageUtil;
 import com.cqf.fenglib.utils.MyActivityManager;
 import com.cqf.fenglib.utils.MyUtils;
@@ -34,9 +30,9 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
         Config.TAG = getClass().getSimpleName();
         //打印当前活动界面
         Log.d("BaseActivity", getClass().getSimpleName());
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+//        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //禁止横竖屏切换
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(Config.ORIENTATION);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         //透明状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -45,7 +41,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
         BaseApplication.getInstance().addActivity(this);
 
         if (Config.THEME_RESID==0){
-            setTheme(R.style.AppTheme_TranslucentStatus);
+//            setTheme(R.style.AppTheme_TranslucentStatus);
         }else {
             setTheme(Config.THEME_RESID);
         }
