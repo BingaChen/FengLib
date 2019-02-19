@@ -6,11 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/green"
+    android:background="@color/yellow"
     tools:context="com.cqf.project_pool.ui.MainActivity">
 
     <!--<include layout="@layout/cqf_title_layout"/>-->
 
+    <com.cqf.project_pool.ui.customView.StatusBarPlaceHolderView
+        android:layout_width="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tvDoubleClick"
         android:text="双击测试"

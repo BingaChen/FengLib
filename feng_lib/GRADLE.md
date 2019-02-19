@@ -1,0 +1,27 @@
+//permission
+    compile 'com.zhy:mpermission-api:1.0.0'
+    annotationProcessor 'com.zhy:mpermission-compiler:1.0.0'
+    //okhttp网络框架
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    //retrofit封装okhttp
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //响应式编程
+    //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-v4:26.1.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.8'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.aliyun.dpa:oss-android-sdk:+'
+    compile 'com.airbnb.android:lottie:2.0.0'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
