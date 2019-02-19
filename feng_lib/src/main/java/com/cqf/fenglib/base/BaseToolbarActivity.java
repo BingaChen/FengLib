@@ -35,8 +35,8 @@ public class BaseToolbarActivity extends BaseActivity{
     }
 
     private void initBar() {
-        if (Config.BACK_RESID!=0){
-            ivLeft.setImageResource(Config.BACK_RESID);
+        if (Config.BACK_RES_ID !=0){
+            ivLeft.setImageResource(Config.BACK_RES_ID);
         }
         ivLeft.setOnClickListener(new View.OnClickListener() {
             @Override

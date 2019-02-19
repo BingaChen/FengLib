@@ -18,6 +18,7 @@ import com.cqf.fenglib.Config;
 import com.cqf.fenglib.utils.LocalManageUtil;
 import com.cqf.fenglib.utils.MyActivityManager;
 import com.cqf.fenglib.utils.MyUtils;
+import com.cqf.fenglib.utils.UiUtils;
 
 public class BaseActivity extends AppCompatActivity implements BaseView{
 
@@ -40,10 +41,11 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
         }
         BaseApplication.getInstance().addActivity(this);
 
-        if (Config.THEME_RESID==0){
+        if (Config.THEME_RES_ID ==0){
 //            setTheme(R.style.AppTheme_TranslucentStatus);
         }else {
-            setTheme(Config.THEME_RESID);
+            setTheme(Config.THEME_RES_ID);
+            UiUtils.setStatusTextColor(Config.USE_DARK,this);
         }
     }
 

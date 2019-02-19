@@ -6,7 +6,8 @@ package com.cqf.fenglib;
 
 public class Config {
     public static String TAG;
-    public static int BACK_RESID;
-    public static int THEME_RESID;
+    public static int BACK_RES_ID;
+    public static int THEME_RES_ID;
+    public static boolean USE_DARK;
     public static int ORIENTATION;
 }
