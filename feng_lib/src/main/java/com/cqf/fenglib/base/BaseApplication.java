@@ -18,7 +18,6 @@ public class BaseApplication extends Application {
 
     public ArrayList<BaseActivity> activities;
     public static BaseApplication application;
-    public int themeResId;
     @Override
     protected void attachBaseContext(Context base) {
         //保存系统选择语言
@@ -48,12 +47,6 @@ public class BaseApplication extends Application {
 
     public static BaseApplication getInstance(){
         return application;
-    }
-    public void setCustomTheme(int resId){
-        themeResId=resId;
-    }
-    public int getThemeResId(){
-        return themeResId;
     }
 
     public void addActivity(BaseActivity activity) {

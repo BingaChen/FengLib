@@ -44,10 +44,10 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
         }
         BaseApplication.getInstance().addActivity(this);
 
-        if (BaseApplication.getInstance().getThemeResId()==0){
+        if (Config.THEME_RESID==0){
             setTheme(R.style.AppTheme_TranslucentStatus);
         }else {
-            setTheme(BaseApplication.getInstance().getThemeResId());
+            setTheme(Config.THEME_RESID);
         }
     }
 

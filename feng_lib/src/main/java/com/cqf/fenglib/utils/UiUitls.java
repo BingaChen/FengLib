@@ -10,4 +10,7 @@ public class UiUitls {
     public static void setBackResId(int resId){
         Config.BACK_RESID=resId;
     }
+    public static void setThemeResId(int resId){
+        Config.THEME_RESID=resId;
+    }
 }
