@@ -36,12 +36,12 @@ dependencies {
 
 
     //Butterkinfe
-    implementation 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //BaseRecyclerViewAdapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
     //Gson
-    implementation 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.7'
 
 }
