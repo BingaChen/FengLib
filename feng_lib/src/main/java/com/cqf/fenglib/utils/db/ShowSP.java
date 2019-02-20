@@ -6,6 +6,11 @@ import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Binga on 6/20/2018.
@@ -49,6 +54,14 @@ public class ShowSP {
             return null;
         }
         return new Gson().fromJson(content, object);
+    }
+    public ArrayList getArrayList(String key,Class<Object> object){
+        String content=preferences.getString(key,"");
+        if (TextUtils.isEmpty(content)){
+            return null;
+        }
+        Type type=new TypeToken<List<Object>>(){}.getType();
+        return new Gson().fromJson(content,type);
     }
 
     public void putObject(String key,Object object){
