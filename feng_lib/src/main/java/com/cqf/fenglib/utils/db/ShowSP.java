@@ -42,7 +42,7 @@ public class ShowSP {
         preferencesEditor.commit();
     }
 
-    public Object getObject(String key,Class<Object> object){
+    public <T> T getObject(String key,Class<T> object){
 
         String content=preferences.getString(key,"");
         if (TextUtils.isEmpty(content)){
@@ -50,6 +50,7 @@ public class ShowSP {
         }
         return new Gson().fromJson(content, object);
     }
+
     public void putObject(String key,Object object){
         if (object==null){
             return;
