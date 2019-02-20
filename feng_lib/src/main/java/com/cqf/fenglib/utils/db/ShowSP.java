@@ -3,6 +3,9 @@ package com.cqf.fenglib.utils.db;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
+
+import com.google.gson.Gson;
 
 /**
  * Created by Binga on 6/20/2018.
@@ -39,6 +42,23 @@ public class ShowSP {
         preferencesEditor.commit();
     }
 
+    public Object getObject(String key,Class<Object> object){
+
+        String content=preferences.getString(key,"");
+        if (TextUtils.isEmpty(content)){
+            return null;
+        }
+        return new Gson().fromJson(content, object);
+    }
+    public void putObject(String key,Object object){
+        if (object==null){
+            return;
+        }
+        String content=new Gson().toJson(object);
+        Editor preferencesEditor = preferences.edit();
+        preferencesEditor.putString(key, content);
+        preferencesEditor.commit();
+    }
     public int getInt(String key, int defaultInt){
         return preferences.getInt(key, defaultInt);
     }
