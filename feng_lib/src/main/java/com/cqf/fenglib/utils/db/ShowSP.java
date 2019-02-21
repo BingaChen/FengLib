@@ -57,12 +57,12 @@ public class ShowSP {
         getObject("",MyUtils.class);
         return new Gson().fromJson(content, object);
     }
-    public ArrayList<Object> getArrayList(String key, final Class<?> object){
+    //Type type=new TypeToken<List<?>>(){}.getType();
+    public ArrayList getArrayList(String key, final Type type){
         String content=preferences.getString(key,"");
         if (TextUtils.isEmpty(content)){
             return null;
         }
-        Type type=new TypeToken<List<?>>(){}.getType();
         return new Gson().fromJson(content,type);
     }
 
