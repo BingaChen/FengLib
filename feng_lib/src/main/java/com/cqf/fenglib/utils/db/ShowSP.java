@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.text.TextUtils;
 
+import com.cqf.fenglib.utils.MyUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -53,14 +54,15 @@ public class ShowSP {
         if (TextUtils.isEmpty(content)){
             return null;
         }
+        getObject("",MyUtils.class);
         return new Gson().fromJson(content, object);
     }
-    public ArrayList getArrayList(String key,Class<Object> object){
+    public ArrayList<Object> getArrayList(String key, final Class<?> object){
         String content=preferences.getString(key,"");
         if (TextUtils.isEmpty(content)){
             return null;
         }
-        Type type=new TypeToken<List<Object>>(){}.getType();
+        Type type=new TypeToken<List<?>>(){}.getType();
         return new Gson().fromJson(content,type);
     }
 

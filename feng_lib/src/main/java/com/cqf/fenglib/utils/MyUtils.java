@@ -63,7 +63,7 @@ import static android.text.TextUtils.isEmpty;
  * Created by Binga on 6/20/2018.
  */
 
-public class MyUtils {
+public class MyUtils extends Object{
 
     private static final int BUFFER_SIZE = 1024 * 1024;//1M Byte
     public static Locale newLocale=new Locale("zh");
