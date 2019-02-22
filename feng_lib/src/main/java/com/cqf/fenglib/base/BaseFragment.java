@@ -38,13 +38,13 @@ public class BaseFragment extends Fragment implements BaseView {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mContext=getActivity();
         Log.v(TAG, "onActivityCreated()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mContext=getActivity();
         Log.v(TAG, "onResume()");
     }
 
