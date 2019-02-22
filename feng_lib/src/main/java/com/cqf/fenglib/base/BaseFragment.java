@@ -21,7 +21,7 @@ import com.cqf.fenglib.utils.MyUtils;
  * Created by wpc on 2018/1/6.
  */
 
-public abstract class BaseFragment extends Fragment implements BaseView {
+public class BaseFragment extends Fragment implements BaseView {
 
 
     protected String TAG = getClass().getSimpleName();
@@ -78,6 +78,28 @@ public abstract class BaseFragment extends Fragment implements BaseView {
 
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public void init() {
+        initView();
+        initData();
+        initListener();
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initListener() {
+
     }
 
     @Override
