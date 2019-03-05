@@ -44,7 +44,7 @@ dependencies {
     //Gson
     compile 'com.google.code.gson:gson:2.7'
     //SmartRefreshLayout
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+//    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+//    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
 
 }

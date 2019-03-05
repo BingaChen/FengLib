@@ -42,7 +42,6 @@ import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.cqf.fenglib.Config;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -609,7 +608,7 @@ public class MyUtils{
     }
 
 
-    public static void smartSuccess(SmartRefreshLayout smart, BaseQuickAdapter adapter, int pageNo, int pageSize, int currentSize){
+    /*public static void smartSuccess(SmartRefreshLayout smart, BaseQuickAdapter adapter, int pageNo, int pageSize, int currentSize){
 
         if (pageNo == 1) {//下拉刷新
             smart.finishRefresh();
@@ -636,7 +635,7 @@ public class MyUtils{
         }
         adapter.notifyDataSetChanged();
     }
-
+*/
     /**
      * 匹配金额是否符合要求（99999999.99）
      */
