@@ -32,4 +32,15 @@ public class MyApp extends BaseApplication {
     public void setOrientation() {
         UiUtils.setOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dismissLoading() {
+
+    }
+
 }

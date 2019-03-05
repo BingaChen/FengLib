@@ -25,8 +25,8 @@ public interface BaseView {
 
     void showDebug(String msg);
 
-    void showProgressGIF(int resId);
+    void showLoading();
 
-    void dismissProgressGIF();
+    void dismissLoading();
 
 }

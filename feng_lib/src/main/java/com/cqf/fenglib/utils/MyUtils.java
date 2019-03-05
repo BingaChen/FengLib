@@ -40,7 +40,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.cqf.fenglib.Config;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,11 +50,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -63,7 +68,7 @@ import static android.text.TextUtils.isEmpty;
  * Created by Binga on 6/20/2018.
  */
 
-public class MyUtils extends Object{
+public class MyUtils{
 
     private static final int BUFFER_SIZE = 1024 * 1024;//1M Byte
     public static Locale newLocale=new Locale("zh");
@@ -603,4 +608,77 @@ public class MyUtils extends Object{
         return oldStr.replace(oldStr.substring(start,end),replace);
     }
 
+
+    public static void smartSuccess(SmartRefreshLayout smart, BaseQuickAdapter adapter, int pageNo, int pageSize, int currentSize){
+
+        if (pageNo == 1) {//下拉刷新
+            smart.finishRefresh();
+            if (currentSize < pageSize) {//加载完毕
+                smart.setEnableLoadMore(false);
+            }else {
+                smart.setEnableLoadMore(true);
+            }
+        } else {//上拉加载更多
+            smart.finishLoadMore();
+            if (currentSize < pageSize) {//加载完毕
+                smart.setEnableLoadMore(false);
+            }else {
+                smart.setEnableLoadMore(true);
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+    public static void smartError(SmartRefreshLayout smart, BaseQuickAdapter adapter,int pageNo){
+        if (pageNo == 1) {
+            smart.finishRefresh(false);
+        } else {
+            smart.finishLoadMore(false);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 匹配金额是否符合要求（99999999.99）
+     */
+    public static boolean isMoney(String money) {
+        String regex = "(^[1-9][0-9]{0,7}(\\.[0-9]{0,2})?)|(^0(\\.[0-9]{0,2})?)";
+        return isMatches(money, regex);
+    }
+
+    public static boolean isPercent(String percent) {
+        String regex = "(^[1-9][0-9]{0,1}(\\.[0-9]{0,2})?)|(^0(\\.[0-9]{0,2})?)";
+        return isMatches(percent, regex);
+    }
+
+    /**
+     * 字符串是否符合正则表达式的规则
+     */
+    private static boolean isMatches(String text, String format) {
+        Pattern pattern = Pattern.compile(format);
+        Matcher m = pattern.matcher(text);
+        return m.matches();
+    }
+
+    public static String MD5(String sourceStr) {
+        String result = "";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(sourceStr.getBytes());
+            byte b[] = md.digest();
+            int i;
+            StringBuffer buf = new StringBuffer("");
+            for (int offset = 0; offset < b.length; offset++) {
+                i = b[offset];
+                if (i < 0)
+                    i += 256;
+                if (i < 16)
+                    buf.append("0");
+                buf.append(Integer.toHexString(i));
+            }
+            result = buf.toString();
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println(e);
+        }
+        return result;
+    }
 }

@@ -92,13 +92,13 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
     }
 
     @Override
-    public void showProgressGIF(int resId) {
-
+    public void showLoading() {
+        BaseApplication.application.showLoading();
     }
 
     @Override
-    public void dismissProgressGIF() {
-
+    public void dismissLoading() {
+    BaseApplication.application.dismissLoading();
     }
 
     @Override
@@ -184,7 +184,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        MyActivityManager.removeActivity(this);
+//        MyActivityManager.removeActivity(this);
         BaseApplication.getInstance().removeActivity(this);
     }
 

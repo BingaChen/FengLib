@@ -69,4 +69,6 @@ public abstract class BaseApplication extends Application{
     public abstract void setBack();
     public abstract void setAppTheme();
     public abstract void setOrientation();
+    public abstract void showLoading();
+    public abstract void dismissLoading();
 }
