@@ -117,19 +117,17 @@ public class BaseFragment extends Fragment implements BaseView {
         MyUtils.showMyLog(msg);
     }
 
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void dismissLoading() {
+
+    }
+
     Dialog gifdialog;
-
-    @Override
-    public void showProgressGIF(int resId) {
-
-    }
-
-    @Override
-    public void dismissProgressGIF() {
-        if (gifdialog != null && gifdialog.isShowing()) {
-            gifdialog.dismiss();
-        }
-    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
