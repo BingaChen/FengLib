@@ -40,7 +40,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.cqf.fenglib.Config;
 
 import java.io.File;
