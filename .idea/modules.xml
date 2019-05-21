@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FengLib.iml" filepath="$PROJECT_DIR$/FengLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyLib.iml" filepath="$PROJECT_DIR$/MyLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feng_lib/feng_lib.iml" filepath="$PROJECT_DIR$/feng_lib/feng_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/feng_lib/feng_lib.iml" filepath="$PROJECT_DIR$/feng_lib/feng_lib.iml" />
     </modules>
   </component>
