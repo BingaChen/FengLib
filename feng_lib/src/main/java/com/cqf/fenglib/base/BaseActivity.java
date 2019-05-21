@@ -20,9 +20,13 @@ import com.cqf.fenglib.utils.MyActivityManager;
 import com.cqf.fenglib.utils.MyUtils;
 import com.cqf.fenglib.utils.UiUtils;
 
-public class BaseActivity extends AppCompatActivity implements BaseView{
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class BaseActivity extends SwipeBackActivity implements BaseView{
 
     protected Context context;
+    private SwipeBackLayout mSwipeBackLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,8 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
             setTheme(Config.THEME_RES_ID);
             UiUtils.setStatusTextColor(Config.USE_DARK,this);
         }
+        mSwipeBackLayout = getSwipeBackLayout();
+
     }
 
     @Override
