@@ -76,6 +76,7 @@ public class MyUtils{
     private static long lastClickTime;
 
     public static Toast toast;
+
     public static boolean isFastDoubleClick() {
         long currentTime = SystemClock.elapsedRealtime();
         boolean isClick;
