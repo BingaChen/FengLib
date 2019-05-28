@@ -75,6 +75,7 @@ public class MyUtils{
     private final static int SPACE_TIME = 300;//2次点击的间隔时间，单位ms
     private static long lastClickTime;
 
+    public static Toast toast;
     public static boolean isFastDoubleClick() {
         long currentTime = SystemClock.elapsedRealtime();
         boolean isClick;
@@ -99,8 +100,15 @@ public class MyUtils{
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());//更新配置
     }
     //吐司
-    public static void showToast(Context context, String msg) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+    public static void showToast(Context context, String content) {
+        if (toast == null) {
+            toast = Toast.makeText(context,
+                    content,
+                    Toast.LENGTH_SHORT);
+        } else {
+            toast.setText(content);
+        }
+        toast.show();
     }
     //长吐司
     public static void showLongToast(Context context, String msg) {
