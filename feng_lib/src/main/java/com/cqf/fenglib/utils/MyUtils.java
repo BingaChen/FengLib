@@ -79,6 +79,7 @@ public class MyUtils{
     public static boolean isFastDoubleClick() {
         long currentTime = SystemClock.elapsedRealtime();
         boolean isClick;
+
         if (currentTime - lastClickTime > SPACE_TIME) {
             isClick = false;
         } else {
