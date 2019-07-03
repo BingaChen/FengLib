@@ -14,6 +14,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
@@ -33,6 +35,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -41,6 +44,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cqf.fenglib.Config;
+import com.cqf.fenglib.Interface.OnKeyboardVisibilityListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -77,6 +81,36 @@ public class MyUtils{
 
     public static Toast toast;
 
+    public static void addOnSoftKeyBoardVisibleListener(final Activity activity, final OnKeyboardVisibilityListener keyboardVisibilityListener) {
+        final View decorView = activity.getWindow().getDecorView();
+        ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect rect = new Rect();
+                decorView.getWindowVisibleDisplayFrame(rect);
+                //计算出可见屏幕的高度
+                int displayHight = rect.bottom - rect.top;
+                //获得屏幕整体的高度
+                int hight = decorView.getHeight();
+                int statusBarHeight= UiUtils.getStatusBarHeight(activity);
+                int keyboardHeight = 0;
+                //获得键盘高度
+                keyboardHeight = hight - displayHight - statusBarHeight;
+                Log.i("keyboard:", "keyboardHeight-" + keyboardHeight);//570
+                Log.i("keyboard:", "statusBarHeight-" + statusBarHeight);//48
+                Log.i("keyboard:", "hight-" + hight);//1280
+                Log.i("keyboard:", "displayHight-" + displayHight);//662
+                if (keyboardHeight<hight/3){
+                    keyboardVisibilityListener.onKeyboardHide();
+                    MyUtils.showLargeLog("keyboard:","hide");
+                }else {
+                    MyUtils.showLargeLog("keyboard:","show");
+                    keyboardVisibilityListener.onKeyboardShow();
+                }
+            }
+        };
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener);
+    }
     public static boolean isFastDoubleClick() {
         long currentTime = SystemClock.elapsedRealtime();
         boolean isClick;
@@ -117,22 +151,54 @@ public class MyUtils{
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
     }
     //打印长日志
-    public static void showLargeLog(String tag, String content) {
-        if (content.length() > 4000) {
-            String show = content.substring(0, 4000);
-            Log.v(tag, show);
-            if (content.length() - 4000 > 4000) {
-                String partLog = content.substring(4000, content.length());
-                showLargeLog(tag, partLog);
-            } else {
-                String partLog = content.substring(4000, content.length());
-                showLargeLog(tag, partLog);
-            }
-        } else {
-            Log.v(tag, content);
+    public static void showLargeLog(String tag, String msg) {
+        //因为String的length是字符数量不是字节数量所以为了防止中文字符过多，
+        //  把4*1024的MAX字节打印长度改为2001字符数
+        int max_str_length = 2001 - tag.length();
+        //大于4000时
+        while (msg.length() > max_str_length) {
+            Log.i(tag, msg.substring(0, max_str_length));
+            msg = msg.substring(max_str_length);
+        }
+        //剩余部分
+        Log.i(tag, msg);
+    }
+
+    //获取设备唯一标识符
+    public static String getUniqueId(Context context) {
+        String androidID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        String id = androidID + Build.SERIAL;
+        try {
+            return toMD5(id);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return id;
         }
     }
 
+
+    private static String toMD5(String text) throws NoSuchAlgorithmException {
+        //获取摘要器 MessageDigest
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        //通过摘要器对字符串的二进制字节数组进行hash计算
+        byte[] digest = messageDigest.digest(text.getBytes());
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < digest.length; i++) {
+            //循环每个字符 将计算结果转化为正整数;
+            int digestInt = digest[i] & 0xff;
+            //将10进制转化为较短的16进制
+            String hexString = Integer.toHexString(digestInt);
+            //转化结果如果是个位数会省略0,因此判断并补0
+            if (hexString.length() < 2) {
+                sb.append(0);
+            }
+            //将循环结果添加到缓冲区
+            sb.append(hexString);
+        }
+        //返回整个结果
+        return sb.toString();
+    }
     //px转换成dp
     public static int px2dp(Context context, float pxValue) {
         float scale = context.getResources().getDisplayMetrics().density;

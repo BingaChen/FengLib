@@ -34,7 +34,7 @@ public class BaseActivity extends SwipeBackActivity implements BaseView{
         super.onCreate(savedInstanceState);
         Config.TAG = getClass().getSimpleName();
         //打印当前活动界面
-        Log.d("BaseActivity", getClass().getSimpleName());
+        Log.d(getClass().getSimpleName(),"onCreate");
 //        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //禁止横竖屏切换
         setRequestedOrientation(Config.ORIENTATION);
@@ -167,15 +167,20 @@ public class BaseActivity extends SwipeBackActivity implements BaseView{
     private void hideSoftInput(IBinder token) {
         if (token != null) {
             InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            im.hideSoftInputFromWindow(token,
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+            im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(getClass().getSimpleName(),"onStart");
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(getClass().getSimpleName(),"onResume");
         //注：回调 1
 //        Bugtags.onResume(this);
     }
@@ -183,13 +188,21 @@ public class BaseActivity extends SwipeBackActivity implements BaseView{
     @Override
     protected void onPause() {
         super.onPause();
+        Log.d(getClass().getSimpleName(),"onPause");
         //注：回调 2
 //        Bugtags.onPause(this);
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(getClass().getSimpleName(),"onStop");
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(getClass().getSimpleName(),"onDestroy");
 //        MyActivityManager.removeActivity(this);
         BaseApplication.getInstance().removeActivity(this);
     }
